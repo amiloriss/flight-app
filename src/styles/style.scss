@@ -1,14 +1,12 @@
+// import other css files
 @import './colors';
 @import './fonts';
-@import './auth';
 @import './fix';
-
+@import './auth';
+@import './flight';
+@import './carousel';
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-.app {
-	position: relative;
 }

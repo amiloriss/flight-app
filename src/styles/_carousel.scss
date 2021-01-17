@@ -1,0 +1,20 @@
+.carousel-wrapper {
+	width: 100%;
+	overflow-x: scroll;
+	scrollbar-width: none;
+	margin-bottom: 30px;
+	.carousel-list {
+		.carousel-item {
+			display: inline-block;
+			&:not(:last-child) {
+				margin-right: 12px;
+			}
+			.carousel-image {
+				width: 164px;
+				height: 149px;
+				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+				border-radius: 10px;
+			}
+		}
+	}
+}
