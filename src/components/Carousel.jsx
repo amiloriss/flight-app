@@ -1,0 +1,22 @@
+import React from 'react';
+
+const Carousel = ({ data }) => {
+	return (
+		<div
+			onScroll={e => {
+				console.log(e);
+			}}
+			className='carousel-wrapper'
+		>
+			<ul style={{ width: data.length * 175 + 'px' }} className='carousel-list'>
+				{data.map(el => (
+					<li className='carousel-item'>
+						<img className='carousel-image' src={el} alt='image' />
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+export default Carousel;
