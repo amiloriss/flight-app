@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FlightItem from './FlightItem';
 import Carousel from './Carousel';
+
+import { connect } from 'react-redux';
+import flightData from '../actions/GetFlightData';
+
 import planeIcon from '../images/plane.png';
 import calendarIcon from '../images/calendar.png';
 
@@ -72,6 +76,9 @@ const data = [
 ];
 
 const FlightWindow = () => {
+	useEffect(() => {
+		flightData();
+	}, []);
 	return (
 		<div className='flight-container'>
 			<div className='header'>
@@ -105,4 +112,4 @@ const FlightWindow = () => {
 	);
 };
 
-export default FlightWindow;
+export default connect(null, flightData)(FlightWindow);

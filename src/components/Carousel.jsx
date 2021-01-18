@@ -2,12 +2,7 @@ import React from 'react';
 
 const Carousel = ({ data }) => {
 	return (
-		<div
-			onScroll={e => {
-				console.log(e);
-			}}
-			className='carousel-wrapper'
-		>
+		<div className='carousel-wrapper'>
 			<ul style={{ width: data.length * 175 + 'px' }} className='carousel-list'>
 				{data.map(el => (
 					<li className='carousel-item'>
