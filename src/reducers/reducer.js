@@ -1,19 +1,43 @@
-import { GET_DATA } from '../actions/types';
+import {
+    SET_LOADING,
+    GET_CARRIER,
+    GET_PRICE,
+    GET_PLACES,
+    SET_DATE,
+} from '../actions/types';
+
 const initialState = {
-	price: 3000,
+    loading: true,
+    carrier: '',
+    price: 0,
+    date: null,
+    places: null,
 };
 
 const reducer = (state = initialState, action) => {
-	switch (action.type) {
-		case GET_DATA:
-			return {
-				...state,
-				price: state.price,
-			};
-
-		default:
-			return state;
-	}
+    switch (action.type) {
+        case SET_LOADING:
+            return {
+                ...state,
+                loading: true,
+            };
+        case GET_CARRIER:
+            return {
+                ...state,
+                carrier: action.payload,
+            };
+        case GET_PRICE:
+            return {
+                ...state,
+                price: action.payload,
+            };
+        case SET_DATE:
+            return {
+                date: action.payload,
+            };
+        default:
+            return state;
+    }
 };
 
 export default reducer;
