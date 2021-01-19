@@ -18,12 +18,11 @@ const AuthForm = () => {
 					<label htmlFor='password'>Пароль</label>
 					<input minLength='8' name='password' id='password' type='password' />
 				</div>
-				<input
-					onClick={e => userEnter(e)}
+				<Link to="/home">
+				<a
 					className='btn-enter'
-					type='submit'
-					value='Войти'
-				/>
+				>Войти</a>
+				</Link>
 			</div>
 		</form>
 	);

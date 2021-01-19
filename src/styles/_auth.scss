@@ -1,85 +1,96 @@
 .auth-page {
-	.auth-form {
-		position: absolute;
-		width: 410px;
-		height: 338px;
-		left: 515px;
-		top: 306px;
-		background-color: #fff;
-		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-		border-radius: 20px;
-		padding: 53px 33px 37px 33px;
+    width: 100%;
+    height: 100%;
 
-		.auth-title {
-			font-family: Roboto;
-			font-style: normal;
-			font-weight: 500;
-			font-size: 24px;
-			line-height: 28px;
-			text-align: center;
-			margin-bottom: 16px;
-			color: $dark-color;
-		}
-		.auth-input-wrapper {
-			width: 100%;
-			.login-wrapper,
-			.password-wrapper {
-				margin-bottom: 22px;
-				label {
-					font-family: Roboto;
-					font-style: normal;
-					font-weight: 300;
-					font-size: 16px;
-					line-height: 19px;
-					color: $dark-color;
-				}
-				input {
-					width: 100%;
-					height: 34px;
-					border: 1px solid $border-color;
-					border-radius: 4px;
-					margin-top: 4px;
-					padding: 0 5px;
-					font-family: Roboto;
-					font-size: 17px;
-				}
-			}
-			.btn-enter {
-				background: linear-gradient(
-					104.34deg,
-					$dark-blue -15.34%,
-					$light-blue 145.95%
-				);
-				box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
-				border-radius: 4px;
-				border: none;
-				color: $white;
-				padding: 7.5px 37.25px;
+    .blur-layer {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
 
-				font-family: Roboto;
-				font-style: normal;
-				font-weight: 400;
-				font-size: 16px;
-				line-height: 19px;
-				float: right;
+    .auth-form {
+        position: absolute;
+        width: 410px;
+        height: 338px;
+        left: 515px;
+        top: 306px;
+        background-color: #fff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        padding: 53px 33px 37px 33px;
 
-				cursor: pointer;
+        .auth-title {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            text-align: center;
+            margin-bottom: 16px;
+            color: $dark-color;
+        }
+        .auth-input-wrapper {
+            width: 100%;
+            .login-wrapper,
+            .password-wrapper {
+                margin-bottom: 22px;
+                label {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: $dark-color;
+                }
+                input {
+                    width: 100%;
+                    height: 34px;
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+                    margin-top: 4px;
+                    padding: 0 5px;
+                    font-family: Roboto;
+                    font-size: 17px;
+                }
+            }
+            .btn-enter {
+                background: linear-gradient(
+                    104.34deg,
+                    $dark-blue -15.34%,
+                    $light-blue 145.95%
+                );
+                box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+                border-radius: 4px;
+                border: none;
+                color: $white;
+                padding: 7.5px 37.25px;
 
-				&:hover {
-					box-shadow: 0px 0px 4px #99a0a3;
-					border-radius: 4px;
-				}
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                float: right;
 
-				&:active {
-					background: linear-gradient(
-						104.34deg,
-						$dark-blue -15.34%,
-						$light-blue 145.95%
-					);
-					border: 1.5px solid rgba(29, 138, 216, 0.3);
-					border-radius: 4px;
-				}
-			}
-		}
-	}
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0px 0px 4px #99a0a3;
+                    border-radius: 4px;
+                }
+
+                &:active {
+                    background: linear-gradient(
+                        104.34deg,
+                        $dark-blue -15.34%,
+                        $light-blue 145.95%
+                    );
+                    border: 1.5px solid rgba(29, 138, 216, 0.3);
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
 }

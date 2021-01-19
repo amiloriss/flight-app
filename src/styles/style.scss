@@ -5,8 +5,16 @@
 @import './auth';
 @import './flight';
 @import './carousel';
+
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    max-width: 1440px;
+    min-width: 1440px;
+    position: relative;
+    height: 900px;
 }

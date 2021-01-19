@@ -4,9 +4,10 @@ import backgroundImage from '../images/backgroundImage.jpg';
 
 const AuthPage = () => {
 	return (
-		<div className='auth-page'>
-			<img src={backgroundImage} alt='background' />
+		<div style={{background: `url(${backgroundImage})`}} className='auth-page'>
+			<div className="blur-layer">
 			<AuthForm />
+			</div>
 		</div>
 	);
 };

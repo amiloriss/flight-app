@@ -1,22 +1,30 @@
 import React from 'react';
+import {connect} from 'react-redux';
+const FlightItem = ({ planeIcon, price,carrier,symbol }) => {
 
-const FlightItem = ({ company, date, img, from, to, price }) => {
 	return (
 		<li className='list-item'>
 			<div className='item-wrapper'>
 				<div className='icon-section'>
 					<div className='icon-wrapper'>
-						<img src={img} alt='image' className='icon' />
+						<img src={planeIcon} alt='image' className='icon' />
 					</div>
 				</div>
 				<div className='flight-direction'>
-					{from}
-					{to}
+					Компания: {carrier}
 				</div>
-				<div className='price-section'>{price}</div>
+				<div className='price-section'>Цена: {price}₽</div>
 			</div>
 		</li>
 	);
 };
 
-export default FlightItem;
+const mapStateToProps = (state)=>{
+	return {
+		carrier: state.flightData.carrier,
+		price: state.flightData.price,
+		planeIcon: state.filesReducer.planeIcon,
+	}
+}
+
+export default connect(mapStateToProps)(FlightItem);
