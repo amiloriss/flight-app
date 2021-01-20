@@ -1,26 +1,22 @@
 import {
-    SET_LOADING,
     GET_CARRIER,
     GET_PRICE,
     SET_DATE,
     SET_ERROR,
+    SET_FAV,
 } from '../actions/types';
 
 const initialState = {
     loading: true,
     carrier: '',
     price: 0,
+    isFavTicket: false,
     date: null,
     error: false,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_LOADING:
-            return {
-                ...state,
-                loading: true,
-            };
         case GET_CARRIER:
             return {
                 ...state,
@@ -31,11 +27,15 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 price: action.payload,
             };
+        case SET_FAV:
+            return {
+                ...state,
+                isFavTicket: !state.isFavTicket,
+            };
         case SET_DATE:
             return {
                 date: action.payload,
             };
-
         case SET_ERROR:
             return {
                 ...state,

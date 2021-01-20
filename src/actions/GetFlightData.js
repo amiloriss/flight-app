@@ -5,6 +5,7 @@ import {
     GET_PRICE,
     SET_DATE,
     SET_ERROR,
+    SET_FAV,
 } from './types';
 
 export const getFlightData = (date) => (dispatch) => {
@@ -39,6 +40,10 @@ export const getFlightData = (date) => (dispatch) => {
                 type: SET_ERROR,
             });
         });
+};
+
+export const addToFavTicket = () => {
+    return { type: SET_FAV };
 };
 
 export const setLoading = () => {

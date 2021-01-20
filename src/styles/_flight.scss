@@ -1,115 +1,171 @@
 .flight-page {
-	position: relative;
-	top: 0;
-	left: 0;
-	background-color: $background-white-color;
-	width: 100%;
-	height: 1024px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: $background-white-color;
+    width: 100%;
+    height: 1024px;
 
-	.flight-container {
-		position: absolute;
-		width: 680px;
-		height: 895px;
-		background-color: $white;
-		left: 380px;
-		top: 69px;
-		box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
-		border-radius: 20px;
-		padding: 65px 40px 40px 40px;
+    .flight-container {
+        position: absolute;
+        width: 680px;
+        height: 895px;
+        background-color: $white;
+        left: 380px;
+        top: 69px;
+        box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        padding: 65px 40px 40px 40px;
 
-		.header {
-			margin-bottom: 24px;
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-end;
-			.departure-menu {
-				display: flex;
-				align-items: flex-end;
-				& > * {
-					display: inline;
-				}
-				div {
-					font-family: Roboto;
-					font-style: normal;
-					font-weight: 500;
-					font-size: 32px;
-					line-height: 25px;
-					color: #424242;
-				}
-				i {
-					margin: 0 20px;
-					font-size: 20px;
-				}
-			}
+        .header {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            .departure-menu {
+                display: flex;
+                align-items: flex-end;
+                & > * {
+                    display: inline;
+                }
+                div {
+                    font-family: Roboto;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 32px;
+                    line-height: 25px;
+                    color: #424242;
+                }
+                i {
+                    margin: 0 20px;
+                    font-size: 20px;
+                }
+            }
 
-			.date-departure {
-				display: flex;
-				align-items: flex-end;
-				.date {
-					font-family: SF Pro Text;
-					font-style: normal;
-					font-weight: 600;
-					font-size: 25px;
-					line-height: 22px;
-					color: #1157a7;
-					margin-right: 15px;
-				}
-				.calendar-section {
-					display: flex;
-					align-items: flex-end;
-					label {
-						line-height: 0;
-						cursor: pointer;
+            .date-departure {
+                display: flex;
+                align-items: flex-end;
+                .date {
+                    font-family: SF Pro Text;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 25px;
+                    line-height: 22px;
+                    color: #1157a7;
+                    margin-right: 15px;
+                }
+                .calendar-section {
+                    display: flex;
+                    align-items: flex-end;
+                    label {
+                        line-height: 0;
+                        cursor: pointer;
 
-						.calendar {
-							display: none;
-						}
-					}
-				}
-			}
-		}
-		.favourite-flight {
-			font-family: 'SF Pro Text';
-			font-style: normal;
-			font-weight: 300;
-			font-size: 17px;
-			line-height: 22px;
-			letter-spacing: -0.408px;
-			margin-bottom: 23px;
-		}
-		.flight-list-wrapper {
-			overflow-y: scroll;
-			height: 515px;
-			& > * {
-				font-family: 'SF Pro Text';
-			}
-			.list {
-				.list-item {
-					&:not(:last-child) {
-						border-bottom: 1px solid rgba(135, 135, 135, 0.2);
-					}
-					padding-bottom: 17px;
-					margin-bottom: 17px;
-					.item-wrapper {
-						display: flex;
-						justify-content: space-between;
-						.icon-section {
-							.icon-wrapper {
-								background-color: rgba(0, 119, 255, 0.05);
-								border-radius: 50%;
-								padding: 15px;
+                        .calendar {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .favourite-flight {
+            font-family: 'SF Pro Text';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 17px;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+            margin-bottom: 23px;
+        }
+        .flight-list-wrapper {
+            overflow-y: scroll;
+            height: 515px;
+            & > * {
+                font-family: 'SF Pro Text';
+            }
+            .list {
+                .list-item {
+                    border-bottom: 1px solid rgba(135, 135, 135, 0.2);
+                    margin-bottom: 17px;
+                    padding: 0 10px 17px 10px;
 
-								.icon {
-								}
-							}
-						}
-						.flight-direction {
-						}
-						.price-section {
-						}
-					}
-				}
-			}
-		}
-	}
+                    .item-wrapper {
+                        display: flex;
+                        align-items: center;
+                        & > div {
+                            display: inline-block;
+                        }
+                        .icon-section {
+                            margin-right: 24px;
+                            .icon-wrapper {
+                                background-color: rgba(0, 119, 255, 0.05);
+                                border-radius: 50%;
+                                padding: 15px;
+                            }
+                        }
+                        .flight-direction-wrapper {
+                            margin-right: 69px;
+                            width: 297px;
+                            font-family: 'SF Pro Text';
+                            .flight-direction {
+                                font-style: normal;
+                                font-weight: 300;
+                                font-size: 17px;
+                                line-height: 22px;
+                                letter-spacing: -0.408px;
+                                color: $dark-color;
+                            }
+
+                            .date,
+                            .company {
+                                font-style: normal;
+                                font-weight: 300;
+                                font-size: 14px;
+                                line-height: 22px;
+                                letter-spacing: -0.408px;
+                                color: $light-silver;
+                            }
+                        }
+
+                        .price-section {
+                            width: 108px;
+                            .favourite-flight {
+                                margin-bottom: 22px;
+                                text-align: right;
+                                .unlike,
+                                .like {
+                                    font-size: 21px;
+                                    cursor: pointer;
+                                }
+                                .unlike {
+                                    opacity: 0.6;
+                                }
+                            }
+                            .text {
+                                font-family: 'SF Pro Text';
+                                font-style: normal;
+                                font-weight: 300;
+                                font-size: 11px;
+                                line-height: 22px;
+                                letter-spacing: -0.408px;
+                                color: $light-silver;
+                                display: inline;
+                                margin-right: 8px;
+                            }
+                            .price {
+                                font-family: 'SF Pro Text';
+                                font-style: normal;
+                                font-weight: 300;
+                                font-size: 17px;
+                                line-height: 22px;
+                                letter-spacing: -0.408px;
+                                color: $dark-color;
+                                display: inline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

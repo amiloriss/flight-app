@@ -20,7 +20,10 @@ const FlightWindow = ({ images, getFlightData, loading, error }) => {
         if (day.length < 2) day = '0' + day;
 
         getFlightData([year, month, day].join('-'));
-    }, []);
+        // eslint-disable-next-line
+    },
+    
+    []);
 
     return (
         <div className='flight-container'>
