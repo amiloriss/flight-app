@@ -3,13 +3,13 @@ import {
     SET_LOADING,
     GET_CARRIER,
     GET_PRICE,
-    GET_PLACES,
     SET_DATE,
+    SET_ERROR,
 } from './types';
 
-export const getFlightData = (date) => async (dispatch) => {
+export const getFlightData = (date) => (dispatch) => {
     setLoading();
-    var options = {
+    const options = {
         method: 'GET',
         url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/RU/RUB/en-US/SVO/JFK/${date}`,
         params: { inboundpartialdate: 'anytime' },
@@ -29,14 +29,15 @@ export const getFlightData = (date) => async (dispatch) => {
                 type: GET_CARRIER,
                 payload: res.data.Carriers[0].Name,
             });
-            dispatch({ type: GET_PLACES, payload: res.data.Places });
             dispatch({
                 type: GET_PRICE,
                 payload: res.data.Dates.OutboundDates.map((el) => el.Price),
             });
         })
-        .catch((error) => {
-            console.error(error);
+        .catch(() => {
+            dispatch({
+                type: SET_ERROR,
+            });
         });
 };
 

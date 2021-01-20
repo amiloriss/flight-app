@@ -2,8 +2,8 @@ import {
     SET_LOADING,
     GET_CARRIER,
     GET_PRICE,
-    GET_PLACES,
     SET_DATE,
+    SET_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -11,7 +11,7 @@ const initialState = {
     carrier: '',
     price: 0,
     date: null,
-    places: null,
+    error: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -34,6 +34,12 @@ const reducer = (state = initialState, action) => {
         case SET_DATE:
             return {
                 date: action.payload,
+            };
+
+        case SET_ERROR:
+            return {
+                ...state,
+                error: true,
             };
         default:
             return state;

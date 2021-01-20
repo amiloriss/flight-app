@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-const FlightItem = ({ planeIcon, price,carrier,symbol }) => {
+const FlightItem = ({ planeIcon,  price,carrier,symbol }) => {
 
 	return (
 		<li className='list-item'>
@@ -11,6 +11,7 @@ const FlightItem = ({ planeIcon, price,carrier,symbol }) => {
 					</div>
 				</div>
 				<div className='flight-direction'>
+					Moscow (SVO) - New York City (JFK)
 					Компания: {carrier}
 				</div>
 				<div className='price-section'>Цена: {price}₽</div>

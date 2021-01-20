@@ -5,11 +5,11 @@ import Carousel from './Carousel';
 import { connect } from 'react-redux';
 import { getFlightData } from '../actions/GetFlightData';
 
-import {CircularProgress} from '@material-ui/core'
+import { CircularProgress } from '@material-ui/core';
 
 import calendarIcon from '../images/calendar.png';
 
-const FlightWindow = ({ images, getFlightData, loading }) => {
+const FlightWindow = ({ images, getFlightData, loading, error }) => {
     useEffect(() => {
         let d = new Date(),
             month = '' + (d.getMonth() + 1),
@@ -52,12 +52,16 @@ const FlightWindow = ({ images, getFlightData, loading }) => {
                 Добавлено в избранное: <span>10</span> рейсов
             </div>
             <div className='flight-list-wrapper'>
-                {loading ? (
-					<CircularProgress />
+                {error ? (
+                    <p style={{textAlign: 'center'}}>No tickets. Please choose another date.</p>
+                ) : loading ? (
+                    <CircularProgress
+                        style={{ display: 'block', margin: '0 auto' }}
+                    />
                 ) : (
-					<ul className='list'>
-					<FlightItem />
-				</ul>
+                    <ul className='list'>
+                        <FlightItem />
+                    </ul>
                 )}
             </div>
         </div>
@@ -65,10 +69,10 @@ const FlightWindow = ({ images, getFlightData, loading }) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log(state.flightData.loading);
     return {
         images: state.filesReducer.images,
         loading: state.flightData.loading,
+        error: state.flightData.error,
     };
 };
 
