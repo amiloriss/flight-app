@@ -2,6 +2,7 @@ import {
     GET_CARRIER,
     GET_PRICE,
     SET_DATE,
+    GET_FLIGHT_TIME,
     SET_ERROR,
     SET_FAV,
 } from '../actions/types';
@@ -9,8 +10,10 @@ import {
 const initialState = {
     loading: true,
     carrier: '',
+    flightTime: '',
     price: 0,
     isFavTicket: false,
+    favAmount: 0,
     date: null,
     error: false,
 };
@@ -31,6 +34,15 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFavTicket: !state.isFavTicket,
+                favAmount:
+                    state.isFavTicket === true
+                        ? state.favAmount++
+                        : state.favAmount++,
+            };
+        case GET_FLIGHT_TIME:
+            return {
+                ...state,
+                flightTime: action.payload,
             };
         case SET_DATE:
             return {

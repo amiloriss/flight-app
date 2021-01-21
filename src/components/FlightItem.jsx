@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {addToFavTicket} from '../actions/GetFlightData'
 
-const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket }) => {
+const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, flightTime, setFavCount, favCount }) => {
     return (
         <li className='list-item'>
             <div className='item-wrapper'>
@@ -16,15 +16,14 @@ const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket }) 
                     <div className='flight-direction'>
                         Moscow (SVO) - New York City (JFK)
                     </div>
-
-                    <div className='date'>28 june - 2021</div>
+                    <div className='date'>{flightTime}</div>
                     <div className='company'>{carrier}</div>
                 </div>
 
                 <div className='price-section'>
                     <div className='favourite-flight'>
                         <i
-                            onClick={addToFavTicket}
+                            onClick={()=>{addToFavTicket() && setFavCount(isFavTicket ? favCount-1 : favCount+1)}}
                             style={{ color: isFavTicket && 'red' }}
                             className={`${
                                 isFavTicket ? 'fas' : 'far'
@@ -39,12 +38,14 @@ const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket }) 
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.flightData)
+    console.log(state.flightData);
     return {
         carrier: state.flightData.carrier,
         price: state.flightData.price,
         planeIcon: state.filesReducer.planeIcon,
-        isFavTicket: state.flightData.isFavTicket
+        isFavTicket: state.flightData.isFavTicket,
+        date: state.flightData.date,
+        flightTime: state.flightData.flightTime
     };
 };
 

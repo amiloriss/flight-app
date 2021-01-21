@@ -1,30 +1,16 @@
-import React, { useEffect } from 'react';
+import React, {useState} from 'react';
 import FlightItem from './FlightItem';
 import Carousel from './Carousel';
 
 import { connect } from 'react-redux';
 import { getFlightData } from '../actions/GetFlightData';
-
-import { CircularProgress } from '@material-ui/core';
+import {chooseDate} from '../date'
 
 import calendarIcon from '../images/calendar.png';
 
-const FlightWindow = ({ images, getFlightData, loading, error }) => {
-    useEffect(() => {
-        let d = new Date(),
-            month = '' + (d.getMonth() + 1),
-            day = '' + d.getDate(),
-            year = d.getFullYear();
-
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
-
-        getFlightData([year, month, day].join('-'));
-        // eslint-disable-next-line
-    },
+const FlightWindow = ({ images, getFlightData,  error, date, isFavTicket }) => {
+    let [favCount, setFavCount] = useState(0);
     
-    []);
-
     return (
         <div className='flight-container'>
             <div className='header'>
@@ -36,7 +22,7 @@ const FlightWindow = ({ images, getFlightData, loading, error }) => {
                     <div className='direction'>SVO - JFK</div>
                 </div>
                 <div className='date-departure'>
-                    <div className='date'>{}07 июля 2020</div>
+                    <div className='date'>{chooseDate(date)}</div>
                     <div className='calendar-section'>
                         <label htmlFor='calendar'>
                             <img src={calendarIcon} alt='calendar-icon' />
@@ -52,18 +38,16 @@ const FlightWindow = ({ images, getFlightData, loading, error }) => {
             </div>
             <Carousel data={images} />
             <div className='favourite-flight'>
-                Добавлено в избранное: <span>10</span> рейсов
+                Добавлено в избранное: <span>{favCount}</span> рейсов
             </div>
             <div className='flight-list-wrapper'>
                 {error ? (
-                    <p style={{textAlign: 'center'}}>No tickets. Please choose another date.</p>
-                ) : loading ? (
-                    <CircularProgress
-                        style={{ display: 'block', margin: '0 auto' }}
-                    />
+                    <p style={{ textAlign: 'center' }}>
+                        No tickets. Please choose another date.
+                    </p>
                 ) : (
                     <ul className='list'>
-                        <FlightItem />
+                        <FlightItem favCount={favCount} setFavCount={setFavCount} />
                     </ul>
                 )}
             </div>
@@ -74,8 +58,9 @@ const FlightWindow = ({ images, getFlightData, loading, error }) => {
 const mapStateToProps = (state) => {
     return {
         images: state.filesReducer.images,
-        loading: state.flightData.loading,
+        date: state.flightData.date,
         error: state.flightData.error,
+        isFavTicket: state.flightData.isFavTicket
     };
 };
 
