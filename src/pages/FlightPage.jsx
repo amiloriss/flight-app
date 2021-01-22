@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import FlightWindow from '../components/FlightWindow';
 import { CircularProgress } from '@material-ui/core';
 import { getFlightData } from '../actions/GetFlightData';
+import {logout} from '../actions/AuthAction';
 import { connect } from 'react-redux';
 
-const FlightPage = ({ loading, getFlightData, logoutIcon }) => {
+const FlightPage = ({ loading, getFlightData, logoutIcon, logout }) => {
 	const todayDate = () => {
 		let d = new Date(),
 			month = '' + (d.getMonth() + 1),
@@ -27,7 +28,7 @@ const FlightPage = ({ loading, getFlightData, logoutIcon }) => {
 			) : (
 				<>
 					<FlightWindow />
-					<Link to='/'>
+					<Link onClick={logout} to='/'>
 						<div
 							style={{
 								float: 'right',
@@ -65,4 +66,4 @@ const mapStateToProps = state => {
 	};
 };
 
-export default connect(mapStateToProps, { getFlightData })(FlightPage);
+export default connect(mapStateToProps, { getFlightData, logout })(FlightPage);

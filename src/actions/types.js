@@ -5,3 +5,7 @@ export const SET_FAV = 'SET_FAV';
 export const SET_DATE = 'SET_DATE';
 export const GET_FLIGHT_TIME = 'GET_TIME_FLIGHT';
 export const SET_ERROR = 'SET_ERROR';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const LOGIN_FAILURE = 'EMAIL_FAILURE';
+export const PASSWORD_FAILURE = 'PASSWORD_FAILURE';
+export const LOGOUT = 'LOGOUT';
