@@ -77,6 +77,11 @@
 			line-height: 22px;
 			letter-spacing: -0.408px;
 			margin-bottom: 23px;
+
+			.fav-count {
+				font-weight: 600;
+				color: $dark-blue;
+			}
 		}
 		.flight-list-wrapper {
 			overflow-y: scroll;

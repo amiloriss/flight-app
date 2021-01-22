@@ -6,22 +6,25 @@ import image5 from '../images/carousel/image-5.jpg';
 
 import planeIcon from '../images/plane.png';
 
+import logoutIcon from '../images/logout.png';
+
 const images = [
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
-    image1,
-    image2,
-    image3,
-    image4,
-    image5,
+	image1,
+	image2,
+	image3,
+	image4,
+	image5,
+	image1,
+	image2,
+	image3,
+	image4,
+	image5,
 ];
 
 const initialState = {
-    images,
-    planeIcon,
+	images,
+	planeIcon,
+	logoutIcon,
 };
 
 const filesReducer = (state = initialState) => state;
