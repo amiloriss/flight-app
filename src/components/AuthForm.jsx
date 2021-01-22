@@ -10,6 +10,10 @@ import {
 
 class AuthForm extends Component {
 
+	componentDidMount(){
+		this.props.successAuth(localStorage.setItem('user', ''));
+	}
+
     state = {
         email: '',
 		password: '',
@@ -23,13 +27,11 @@ class AuthForm extends Component {
 		// check valid email
         let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
         if (!email.match(pattern)) {
-            console.log('nice');
 			this.props.failureLogin();
         }else
         if (password.length < 8) {
-            console.log('true');
             this.props.failurePassword();
-		}else this.props.successAuth();
+		}else this.props.successAuth(email);
 		
     };
     render() {
@@ -49,6 +51,7 @@ class AuthForm extends Component {
                             onChange={this.onChange}
                             required
                         />
+						{this.props.isLoginValid === false && <span>It good</span>}
                     </div>
                     <div className='password-wrapper'>
                         <label htmlFor='password'>Пароль</label>
@@ -61,6 +64,7 @@ class AuthForm extends Component {
                             onChange={this.onChange}
                             required
                         />
+						{this.props.isPasswordValid === false && <span>What happens</span>}
                     </div>
                     <Link onClick={() => this.auth(email, password)} to='/home'>
                         <a className='btn-enter'>Войти</a>
@@ -74,7 +78,7 @@ class AuthForm extends Component {
 const mapStateToProps = (state) => {
     return {
         isLoginValid: state.authReducer.isLoginValid,
-        isPasswordValid: state.authReducer.isPasswordValid,
+		isPasswordValid: state.authReducer.isPasswordValid,
     };
 };
 

@@ -5,7 +5,7 @@ import {addToFavTicket} from '../actions/GetFlightData'
 
 const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, flightTime, setFavCount, favCount }) => {
     return (
-        <li className='list-item'>
+        <li key={''} className='list-item'>
             <div className='item-wrapper'>
                 <div className='icon-section'>
                     <div className='icon-wrapper'>
@@ -38,7 +38,6 @@ const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, fl
 };
 
 const mapStateToProps = (state) => {
-    console.log(state.flightData);
     return {
         carrier: state.flightData.carrier,
         price: state.flightData.price,

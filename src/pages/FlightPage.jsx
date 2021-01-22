@@ -7,6 +7,7 @@ import {logout} from '../actions/AuthAction';
 import { connect } from 'react-redux';
 
 const FlightPage = ({ loading, getFlightData, logoutIcon, logout }) => {
+
 	const todayDate = () => {
 		let d = new Date(),
 			month = '' + (d.getMonth() + 1),
