@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 
 import { connect } from 'react-redux';
 import { getFlightData } from '../actions/GetFlightData';
-import { chooseDate } from '../date';
+import { translateDate } from '../date';
 
 import calendarIcon from '../images/calendar.png';
 
@@ -20,7 +20,7 @@ const FlightWindow = ({ images, getFlightData, error, date, isFavTicket }) => {
 					<div className='direction'>SVO - JFK</div>
 				</div>
 				<div className='date-departure'>
-					<div className='date'>{chooseDate(date)}</div>
+					<div className='date'>{translateDate(date)}</div>
 					<div className='calendar-section'>
 						<label htmlFor='calendar'>
 							<img src={calendarIcon} alt='calendar-icon' />

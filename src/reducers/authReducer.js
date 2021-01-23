@@ -21,12 +21,10 @@ const authReducer = (state = initialState, action) => {
             };
         case LOGIN_FAILURE:
             return {
-                ...state,
                 isLoginValid: false,
             };
         case PASSWORD_FAILURE:
             return {
-                ...state,
                 isPasswordValid: false,
             };
         case LOGOUT:

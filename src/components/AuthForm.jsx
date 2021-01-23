@@ -11,6 +11,7 @@ import {
 class AuthForm extends Component {
 
 	componentDidMount(){
+        // set user localstorage initial state
 		this.props.successAuth(localStorage.setItem('user', ''));
 	}
 
@@ -24,26 +25,26 @@ class AuthForm extends Component {
         this.setState({ [e.target.name]: e.target.value } );
     };
     auth = (email, password) => {
-		// check valid email
+		// check valid email and password
         let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
         if (!email.match(pattern)) {
 			this.props.failureLogin();
-        }else
+        } else
         if (password.length < 8) {
             this.props.failurePassword();
-		}else this.props.successAuth(email);
+		}else if(email.match(pattern) && password.length >= 8) this.props.successAuth(email);
 		
     };
     render() {
-		
         const { email, password } = this.state;
         return (
             <form className='auth-form'>
                 <h2 className='auth-title'>Simple Flight Check</h2>
                 <div className='auth-input-wrapper clear-fix'>
                     <div className='login-wrapper'>
-                        <label htmlFor='login'>Логин</label>
+                        <label style={{color: this.props.isLoginValid === false && 'red'}} htmlFor='login'>Логин</label>
                         <input
+                        style={{borderColor: this.props.isLoginValid === false && 'red'}}
                             value={email}
                             name='email'
                             id='login'
@@ -51,11 +52,12 @@ class AuthForm extends Component {
                             onChange={this.onChange}
                             required
                         />
-						{this.props.isLoginValid === false && <span>It good</span>}
+						{this.props.isLoginValid === false && <span style={{color: 'red'}}>Введите корректную почту</span>}
                     </div>
                     <div className='password-wrapper'>
-                        <label htmlFor='password'>Пароль</label>
+                        <label style={{color: this.props.isPasswordValid === false && 'red'}} htmlFor='password'>Пароль</label>
                         <input
+                        style={{borderColor: this.props.isPasswordValid === false && 'red'}}
                             value={password}
                             minLength='8'
                             name='password'
@@ -64,7 +66,7 @@ class AuthForm extends Component {
                             onChange={this.onChange}
                             required
                         />
-						{this.props.isPasswordValid === false && <span>What happens</span>}
+						{this.props.isPasswordValid === false && <span style={{color: 'red'}}>Пароль должен содержать не менее 8 символов</span>}
                     </div>
                     <Link onClick={() => this.auth(email, password)} to='/home'>
                         <a className='btn-enter'>Войти</a>

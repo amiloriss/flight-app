@@ -13,7 +13,7 @@ const monthList = [
     'December',
 ];
 
-export const chooseDate = (date) => {
+export const translateDate = (date) => {
     const dateArr = date.toString().split('-');
     const day = dateArr[2];
     const year = dateArr[0];
@@ -21,4 +21,13 @@ export const chooseDate = (date) => {
         const month = monthList[--dateArr[1].split('')[1]];
         return day + ' ' + month + ' ' + year;
     }
+};
+
+export const translateDateForDepartureTime = (flighDate, flighTime) => {
+    const time = flighTime.toString().slice(11, 16);
+    const dateArr = flighDate.toString().slice(0, 10).split('-');
+    const day = dateArr[2];
+    const month = monthList[--dateArr[1].split('')[1]];
+    const year = dateArr[0];
+    return day + ' ' + month + ', ' + year + ' - ' + time;
 };
