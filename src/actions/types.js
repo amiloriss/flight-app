@@ -1,5 +1,6 @@
 export const SET_LOADING = 'SET_LOADING';
-export const GET_CARRIER = 'GET_CARRIER';
+export const GET_CARRIER_NAME = 'GET_CARRIER_NAME';
+export const GET_CARRIER_ID = 'GET_CARRIER_ID';
 export const GET_PRICE = 'GET_PRICE';
 export const SET_FAV = 'SET_FAV';
 export const SET_DATE = 'SET_DATE';

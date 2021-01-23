@@ -1,15 +1,17 @@
 import {
-    GET_CARRIER,
+    GET_CARRIER_NAME,
     GET_PRICE,
     SET_DATE,
     GET_FLIGHT_TIME,
     SET_ERROR,
     SET_FAV,
+    GET_CARRIER_ID,
 } from '../actions/types';
 
 const initialState = {
     loading: true,
-    carrier: '',
+    carrierId: 0,
+    carrierName: '',
     flightTime: '',
     price: 0,
     isFavTicket: false,
@@ -20,10 +22,15 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_CARRIER:
+        case GET_CARRIER_ID:
             return {
                 ...state,
-                carrier: action.payload,
+                carrierId: action.payload,
+            };
+        case GET_CARRIER_NAME:
+            return {
+                ...state,
+                carrierName: action.payload,
             };
         case GET_PRICE:
             return {

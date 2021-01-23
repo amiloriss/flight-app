@@ -69,7 +69,7 @@ class AuthForm extends Component {
 						{this.props.isPasswordValid === false && <span style={{color: 'red'}}>Пароль должен содержать не менее 8 символов</span>}
                     </div>
                     <Link onClick={() => this.auth(email, password)} to='/home'>
-                        <a className='btn-enter'>Войти</a>
+                        <div  className='btn-enter'>Войти</div>
                     </Link>
                 </div>
             </form>

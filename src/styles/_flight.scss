@@ -30,15 +30,15 @@
                     display: inline;
                 }
                 div {
-                    font-family: Roboto;
+                    font-family: 'Roboto';
                     font-style: normal;
                     font-weight: 500;
-                    font-size: 32px;
+                    font-size: 30px;
                     line-height: 25px;
                     color: #424242;
                 }
                 i {
-                    margin: 0 20px;
+                    margin: 0 15px;
                     font-size: 20px;
                 }
             }
@@ -47,7 +47,7 @@
                 display: flex;
                 align-items: flex-end;
                 .date {
-                    font-family: SF Pro Text;
+                    font-family: 'SF Pro Text';
                     font-style: normal;
                     font-weight: 600;
                     font-size: 25px;

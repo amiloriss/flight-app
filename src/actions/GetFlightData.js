@@ -1,7 +1,8 @@
 import axios from 'axios';
 import {
     SET_LOADING,
-    GET_CARRIER,
+    GET_CARRIER_ID,
+    GET_CARRIER_NAME,
     GET_PRICE,
     SET_DATE,
     GET_FLIGHT_TIME,
@@ -12,7 +13,6 @@ import {
 import { translateDateForDepartureTime } from '../date';
 
 export const getFlightData = (date) => (dispatch) => {
-    console.log(date);
     setLoading();
     const options = {
         method: 'GET',
@@ -38,7 +38,11 @@ export const getFlightData = (date) => (dispatch) => {
             );
             dispatch({ type: SET_DATE, payload: date });
             dispatch({
-                type: GET_CARRIER,
+                type: GET_CARRIER_ID,
+                payload: res.data.Carriers[0].CarrierId,
+            });
+            dispatch({
+                type: GET_CARRIER_NAME,
                 payload: res.data.Carriers[0].Name,
             });
             dispatch({

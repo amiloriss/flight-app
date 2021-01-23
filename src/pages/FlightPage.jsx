@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 const FlightPage = ({ loading, getFlightData, logoutIcon, logout }) => {
 
 	const todayDate = () => {
+		// set today's date
 		let d = new Date(),
 			month = '' + (d.getMonth() + 1),
 			day = '' + d.getDate(),
@@ -20,7 +21,9 @@ const FlightPage = ({ loading, getFlightData, logoutIcon, logout }) => {
 		return [year, month, day];
 	};
 	useEffect(() => {
+		// run function to send initial state as today's date into dispatch
 		getFlightData(todayDate().join('-'));
+		// eslint-disable-next-line
 	}, []);
 	return (
 		<div className='flight-page'>

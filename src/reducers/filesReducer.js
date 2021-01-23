@@ -8,23 +8,12 @@ import planeIcon from '../images/plane.png';
 
 import logoutIcon from '../images/logout.png';
 
-const images = [
-	image1,
-	image2,
-	image3,
-	image4,
-	image5,
-	image1,
-	image2,
-	image3,
-	image4,
-	image5,
-];
+const images = [image1, image2, image3, image4, image5];
 
 const initialState = {
-	images,
-	planeIcon,
-	logoutIcon,
+    images,
+    planeIcon,
+    logoutIcon,
 };
 
 const filesReducer = (state = initialState) => state;

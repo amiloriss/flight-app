@@ -8,7 +8,7 @@ import { translateDate } from '../date';
 
 import calendarIcon from '../images/calendar.png';
 
-const FlightWindow = ({ images, getFlightData, error, date, isFavTicket }) => {
+const FlightWindow = ({ images, getFlightData, error, date }) => {
 	let [favCount, setFavCount] = useState(0);
 
 	return (
@@ -55,12 +55,10 @@ const FlightWindow = ({ images, getFlightData, error, date, isFavTicket }) => {
 };
 
 const mapStateToProps = state => {
-	
 	return {
 		images: state.filesReducer.images,
 		date: state.flightData.date,
 		error: state.flightData.error,
-		isFavTicket: state.flightData.isFavTicket,
 	};
 };
 

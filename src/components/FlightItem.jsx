@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import {addToFavTicket} from '../actions/GetFlightData'
 
-const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, flightTime, setFavCount, favCount }) => {
+const FlightItem = ({ planeIcon, price, carrierId, carrierName, isFavTicket, addToFavTicket, flightTime, setFavCount, favCount }) => {
     return (
-        <li key={''} className='list-item'>
+        <li key={carrierId} className='list-item'>
             <div className='item-wrapper'>
                 <div className='icon-section'>
                     <div className='icon-wrapper'>
@@ -17,7 +17,7 @@ const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, fl
                         Moscow (SVO) - New York City (JFK)
                     </div>
                     <div className='date'>{flightTime}</div>
-                    <div className='company'>{carrier}</div>
+                    <div className='company'>{carrierName}</div>
                 </div>
 
                 <div className='price-section'>
@@ -38,8 +38,10 @@ const FlightItem = ({ planeIcon, price, carrier, isFavTicket, addToFavTicket, fl
 };
 
 const mapStateToProps = (state) => {
+
     return {
-        carrier: state.flightData.carrier,
+        carrierId: state.flightData.carrierId,
+        carrierName: state.flightData.carrierName,
         price: state.flightData.price,
         planeIcon: state.filesReducer.planeIcon,
         isFavTicket: state.flightData.isFavTicket,
