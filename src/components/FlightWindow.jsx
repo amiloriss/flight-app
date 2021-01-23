@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 import { getFlightData } from '../actions/GetFlightData';
 import { translateDate } from '../date';
 
-import calendarIcon from '../images/calendar.png';
-
 const FlightWindow = ({ images, getFlightData, error, date }) => {
 	let [favCount, setFavCount] = useState(0);
 
@@ -22,15 +20,14 @@ const FlightWindow = ({ images, getFlightData, error, date }) => {
 				<div className='date-departure'>
 					<div className='date'>{translateDate(date)}</div>
 					<div className='calendar-section'>
-						<label htmlFor='calendar'>
-							<img src={calendarIcon} alt='calendar-icon' />
+						<div className="calendar-wrapper">
 							<input
 								onChange={e => getFlightData(e.target.value)}
 								className='calendar'
 								id='calendar'
 								type='date'
 							/>
-						</label>
+						</div>
 					</div>
 				</div>
 			</div>

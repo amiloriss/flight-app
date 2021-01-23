@@ -9,7 +9,6 @@
     .flight-container {
         position: absolute;
         width: 680px;
-        height: 895px;
         background-color: $white;
         left: 50%;
         transform: translateX(-50%);
@@ -58,12 +57,45 @@
                 .calendar-section {
                     display: flex;
                     align-items: flex-end;
-                    label {
-                        line-height: 0;
-                        cursor: pointer;
 
+                    .calendar-wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 25px;
+                        height: 23px;
+                        &::after {
+                            content: url('../images/calendar.png');
+                            z-index: -1;
+                            display: block;
+                            font-size: 2rem;
+                            color: STEELBLUE;
+                            background: none;
+                            width: 50px;
+                            height: 50px;
+                            position: absolute;
+                            top: -5px;
+                            right: -25px;
+                        }
                         .calendar {
-                            display: none;
+                            opacity: 0;
+                            transform: translateX(-120px);
+                            cursor: pointer;
+                            border: none;
+                            width: 200px;
+                            height: 23px;
+                            background-color: rgba(0, 0, 0, 0);
+                            color: rgba(0, 0, 0, 0);
+                            &::-webkit-calendar-picker-indicator {
+                                opacity: 0; //removes triangle indicator
+                                width: 100px;
+                            }
+
+                            &:active,
+                            &:focus {
+                                outline: none;
+                                background-color: rgba(0, 0, 0, 0);
+                                color: rgba(0, 0, 0, 0);
+                            }
                         }
                     }
                 }
@@ -85,7 +117,6 @@
         }
         .flight-list-wrapper {
             overflow-y: scroll;
-            height: 515px;
             & > * {
                 font-family: 'SF Pro Text';
             }
